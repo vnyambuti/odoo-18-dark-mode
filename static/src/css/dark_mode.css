@@ -1,0 +1,1078 @@
+/* ============================================================
+   Dark Mode - Odoo 18
+   Activated by adding class "o_dark_mode" to <html>
+   ============================================================ */
+
+/* ── Smooth transition ── */
+html.o_dark_mode *,
+html.o_dark_mode *::before,
+html.o_dark_mode *::after {
+    transition:
+        background-color 0.25s ease,
+        background 0.25s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+/* ── Root colour palette ── */
+html.o_dark_mode {
+    --dm-bg: #0f1117;
+    --dm-bg-2: #181b24;
+    --dm-bg-3: #1e2130;
+    --dm-bg-4: #252a3a;
+    --dm-bg-hover: #2c3147;
+    --dm-border: #2e3349;
+    --dm-border-light: #3a4060;
+    --dm-text: #d4d8e8;
+    --dm-text-muted: #7b84a3;
+    --dm-text-heading: #eef0f8;
+    --dm-primary: #6c8ef5;
+    --dm-primary-bg: #1e2a52;
+    --dm-success: #3ecf8e;
+    --dm-danger: #f06b6b;
+    --dm-warning: #f5b942;
+    --dm-info: #5bc0de;
+    --dm-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ──────────────────────────────────────────
+   LAYOUT  –  Shell, Navbar, Sidebar
+   ────────────────────────────────────────── */
+html.o_dark_mode body,
+html.o_dark_mode .o_web_client,
+html.o_dark_mode .o_action_manager,
+html.o_dark_mode .o_main_navbar,
+html.o_dark_mode .o_menu_sections,
+html.o_dark_mode .o_home_menu,
+/* Full page / action wrapper */
+html.o_dark_mode .o_action,
+html.o_dark_mode .o_view_controller,
+html.o_dark_mode .o_content,
+/* Settings page outer wrapper */
+html.o_dark_mode .o_settings_container,
+html.o_dark_mode .settings,
+html.o_dark_mode .app_settings_block,
+html.o_dark_mode .o_setting_box,
+html.o_dark_mode .o_setting_left_pane,
+html.o_dark_mode .o_settings_page,
+/* Generic layout fillers */
+html.o_dark_mode .o_main,
+html.o_dark_mode .o_main_content,
+html.o_dark_mode .o_renderer,
+html.o_dark_mode .o_form_view .o_form_sheet_bg,
+html.o_dark_mode .o_form_sheet_bg {
+    background-color: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+}
+
+/* Top navbar */
+html.o_dark_mode .o_main_navbar {
+    background: var(--dm-bg-2) !important;
+    border-bottom: 1px solid var(--dm-border) !important;
+    box-shadow: var(--dm-shadow) !important;
+}
+
+html.o_dark_mode .o_main_navbar .o_menu_brand,
+html.o_dark_mode .o_main_navbar .o_nav_entry,
+html.o_dark_mode .o_main_navbar>ul>li>a,
+html.o_dark_mode .o_main_navbar .o_menu_sections>li>a {
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_main_navbar .o_nav_entry:hover,
+html.o_dark_mode .o_main_navbar>ul>li>a:hover {
+    background: var(--dm-bg-hover) !important;
+    color: #fff !important;
+}
+
+/* App list / home menu */
+html.o_dark_mode .o_home_menu_background,
+html.o_dark_mode .o_home_menu .o_apps {
+    background: var(--dm-bg) !important;
+}
+
+html.o_dark_mode .o_app .o_app_name,
+html.o_dark_mode .o_home_menu .o_app .o_caption {
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_app:hover .o_app_icon,
+html.o_dark_mode .o_app:focus .o_app_icon {
+    filter: brightness(1.15) !important;
+}
+
+/* Left / debug sidebar + Settings left nav */
+html.o_dark_mode .o_menu_sections,
+html.o_dark_mode .o_sidebar,
+html.o_dark_mode .o_cp_sidebar,
+html.o_dark_mode .o_settings_menu,
+html.o_dark_mode .o_settings_sidebar,
+html.o_dark_mode .settings_tab,
+html.o_dark_mode .o_settings_page .o_settings_list,
+html.o_dark_mode .o_ResConfigSettings .o_settings_list,
+html.o_dark_mode .o_field_res_config_settings .o_settings_list {
+    background: var(--dm-bg-2) !important;
+    border-right: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_sidebar .o_sidebar_section>.o_sidebar_title,
+html.o_dark_mode .o_sidebar .o_menu_sections .o_sidebar_title,
+html.o_dark_mode .settings_tab .app_name {
+    color: var(--dm-text-muted) !important;
+}
+
+/* Settings left nav active/hover items */
+html.o_dark_mode .settings_tab .selected,
+html.o_dark_mode .settings_tab li.selected,
+html.o_dark_mode .settings_tab li:hover {
+    background: var(--dm-bg-hover) !important;
+    color: var(--dm-text-heading) !important;
+}
+
+/* ──────────────────────────────────────────
+   CONTROL PANEL, SEARCH BAR, BREADCRUMBS
+   ────────────────────────────────────────── */
+html.o_dark_mode .o_control_panel,
+html.o_dark_mode .o_cp_top,
+html.o_dark_mode .o_cp_bottom,
+html.o_dark_mode .breadcrumb {
+    background: var(--dm-bg-2) !important;
+    border-bottom: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .breadcrumb-item a,
+html.o_dark_mode .breadcrumb-item.active {
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_searchview,
+html.o_dark_mode .o_searchview .o_searchview_input {
+    background: var(--dm-bg-3) !important;
+    border-color: var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_searchview .o_searchview_input::placeholder {
+    color: var(--dm-text-muted) !important;
+}
+
+html.o_dark_mode .o_searchview .o_searchview_facet {
+    background: var(--dm-primary-bg) !important;
+    border-color: var(--dm-primary) !important;
+    color: var(--dm-primary) !important;
+}
+
+/* ──────────────────────────────────────────
+   VIEWS  –  List, Kanban, Form, Calendar, etc.
+   ────────────────────────────────────────── */
+
+/* Generic view containers */
+html.o_dark_mode .o_view_controller,
+html.o_dark_mode .o_content,
+html.o_dark_mode .o_view_sample_data,
+html.o_dark_mode .o_renderer {
+    background: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+}
+
+/* ── List View ── */
+html.o_dark_mode .o_list_view {
+    background: var(--dm-bg) !important;
+}
+
+html.o_dark_mode .o_list_view thead,
+html.o_dark_mode .o_list_view .o_list_table thead th {
+    background: var(--dm-bg-3) !important;
+    color: var(--dm-text-muted) !important;
+    border-color: var(--dm-border) !important;
+}
+
+html.o_dark_mode .o_list_view tbody tr,
+html.o_dark_mode .o_list_view .o_data_row {
+    background: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+    border-bottom: 1px solid var(--dm-border) !important;
+}
+
+html.o_dark_mode .o_list_view tbody tr:hover,
+html.o_dark_mode .o_list_view .o_data_row:hover {
+    background: var(--dm-bg-hover) !important;
+}
+
+html.o_dark_mode .o_list_view tbody tr.o_selected_row,
+html.o_dark_mode .o_list_view .o_data_row.o_selected_row {
+    background: var(--dm-primary-bg) !important;
+}
+
+html.o_dark_mode .o_list_view td,
+html.o_dark_mode .o_list_view th {
+    border-color: var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_optional_columns_dropdown {
+    background: var(--dm-bg-2) !important;
+    border-color: var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+/* ── Kanban View ── */
+html.o_dark_mode .o_kanban_view {
+    background: var(--dm-bg) !important;
+}
+
+html.o_dark_mode .o_kanban_group {
+    background: var(--dm-bg-2) !important;
+    border-radius: 8px !important;
+}
+
+html.o_dark_mode .o_kanban_header,
+html.o_dark_mode .o_kanban_group>.o_kanban_header {
+    background: var(--dm-bg-3) !important;
+    color: var(--dm-text-heading) !important;
+    border-radius: 8px 8px 0 0 !important;
+}
+
+html.o_dark_mode .o_kanban_record {
+    background: var(--dm-bg-3) !important;
+    border: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 6px !important;
+}
+
+html.o_dark_mode .o_kanban_record:hover {
+    background: var(--dm-bg-4) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.o_dark_mode .o_kanban_record .o_kanban_record_title,
+html.o_dark_mode .o_kanban_record h5 {
+    color: var(--dm-text-heading) !important;
+}
+
+html.o_dark_mode .o_kanban_quick_add {
+    color: var(--dm-text-muted) !important;
+}
+
+html.o_dark_mode .o_kanban_quick_add:hover {
+    background: var(--dm-bg-hover) !important;
+    color: var(--dm-text) !important;
+}
+
+/* ── Form View ── */
+html.o_dark_mode .o_form_view,
+html.o_dark_mode .o_form_view .o_form_sheet_bg,
+html.o_dark_mode .o_form_sheet_bg {
+    background: var(--dm-bg) !important;
+}
+
+html.o_dark_mode .o_form_view .o_form_sheet {
+    background: var(--dm-bg-2) !important;
+    border: 1px solid var(--dm-border) !important;
+    box-shadow: var(--dm-shadow) !important;
+    border-radius: 8px !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_form_view label,
+html.o_dark_mode .o_form_view .o_field_widget,
+html.o_dark_mode .o_form_view .o_field_char,
+html.o_dark_mode .o_wrap_label label {
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_form_view .o_group .o_field_widget:not(.o_field_empty) {
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_statusbar_status,
+html.o_dark_mode .o_form_statusbar {
+    background: var(--dm-bg-3) !important;
+    border-bottom: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_statusbar_status button {
+    color: var(--dm-text-muted) !important;
+}
+
+html.o_dark_mode .o_statusbar_status button.o_arrow_button_current {
+    color: var(--dm-text-heading) !important;
+}
+
+html.o_dark_mode .o_form_view .o_notebook .nav-tabs {
+    border-bottom: 1px solid var(--dm-border) !important;
+    background: var(--dm-bg-2) !important;
+}
+
+html.o_dark_mode .o_form_view .o_notebook .nav-tabs .nav-link {
+    color: var(--dm-text-muted) !important;
+    border-color: transparent !important;
+}
+
+html.o_dark_mode .o_form_view .o_notebook .nav-tabs .nav-link.active {
+    background: var(--dm-bg-3) !important;
+    color: var(--dm-text-heading) !important;
+    border-color: var(--dm-border) var(--dm-border) var(--dm-bg-3) !important;
+}
+
+html.o_dark_mode .o_form_view .o_notebook .tab-content {
+    background: var(--dm-bg-3) !important;
+    border: 1px solid var(--dm-border) !important;
+    border-top: none !important;
+    border-radius: 0 0 6px 6px !important;
+}
+
+/* ── Calendar View ── */
+html.o_dark_mode .o_calendar_view,
+html.o_dark_mode .o_calendar_container,
+html.o_dark_mode .fc,
+html.o_dark_mode .fc-view-harness,
+html.o_dark_mode .fc-scrollgrid,
+html.o_dark_mode .fc-col-header,
+html.o_dark_mode .fc-daygrid-body,
+html.o_dark_mode .fc-timegrid-body {
+    background: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .fc-scrollgrid td,
+html.o_dark_mode .fc-scrollgrid th {
+    border-color: var(--dm-border) !important;
+}
+
+html.o_dark_mode .fc-col-header-cell {
+    background: var(--dm-bg-3) !important;
+    color: var(--dm-text-muted) !important;
+}
+
+html.o_dark_mode .fc-daygrid-day-number,
+html.o_dark_mode .fc-timegrid-slot-label {
+    color: var(--dm-text-muted) !important;
+}
+
+html.o_dark_mode .fc-daygrid-day.fc-day-today,
+html.o_dark_mode .fc-timegrid-col.fc-day-today {
+    background: var(--dm-primary-bg) !important;
+}
+
+/* ── Gantt / Map / Graph / Pivot ── */
+html.o_dark_mode .o_graph_view,
+html.o_dark_mode .o_pivot,
+html.o_dark_mode .o_pivot_view {
+    background: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_pivot table th,
+html.o_dark_mode .o_pivot table td {
+    border-color: var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_pivot table thead th {
+    background: var(--dm-bg-3) !important;
+}
+
+/* ──────────────────────────────────────────
+   FORM INPUTS
+   ────────────────────────────────────────── */
+html.o_dark_mode input,
+html.o_dark_mode textarea,
+html.o_dark_mode select,
+html.o_dark_mode .o_input,
+html.o_dark_mode .o_field_widget input,
+html.o_dark_mode .o_field_widget textarea,
+html.o_dark_mode .o_field_widget select {
+    background-color: var(--dm-bg-4) !important;
+    border-color: var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode input:focus,
+html.o_dark_mode textarea:focus,
+html.o_dark_mode select:focus,
+html.o_dark_mode .o_input:focus {
+    border-color: var(--dm-primary) !important;
+    box-shadow: 0 0 0 3px rgba(108, 142, 245, 0.2) !important;
+    outline: none !important;
+}
+
+html.o_dark_mode input::placeholder,
+html.o_dark_mode textarea::placeholder {
+    color: var(--dm-text-muted) !important;
+}
+
+html.o_dark_mode .o_field_many2one .o_input,
+html.o_dark_mode .o_field_many2many_tags .o_field_widget {
+    background: var(--dm-bg-4) !important;
+}
+
+/* Badges / Tags */
+html.o_dark_mode .badge,
+html.o_dark_mode .o_tag {
+    opacity: 0.85;
+}
+
+/* ──────────────────────────────────────────
+   BUTTONS
+   ────────────────────────────────────────── */
+html.o_dark_mode .btn-primary {
+    background-color: var(--dm-primary) !important;
+    border-color: var(--dm-primary) !important;
+    color: #fff !important;
+}
+
+html.o_dark_mode .btn-secondary,
+html.o_dark_mode .btn-light,
+html.o_dark_mode .o_btn_option {
+    background-color: var(--dm-bg-4) !important;
+    border-color: var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .btn-secondary:hover,
+html.o_dark_mode .btn-light:hover {
+    background-color: var(--dm-bg-hover) !important;
+    color: #fff !important;
+}
+
+html.o_dark_mode .btn-danger {
+    background-color: var(--dm-danger) !important;
+    border-color: var(--dm-danger) !important;
+}
+
+html.o_dark_mode .btn-success {
+    background-color: var(--dm-success) !important;
+    border-color: var(--dm-success) !important;
+    color: #0f1117 !important;
+}
+
+html.o_dark_mode .btn-warning {
+    background-color: var(--dm-warning) !important;
+    border-color: var(--dm-warning) !important;
+    color: #0f1117 !important;
+}
+
+/* ──────────────────────────────────────────
+   DROPDOWNS & MODALS
+   ────────────────────────────────────────── */
+html.o_dark_mode .dropdown-menu,
+html.o_dark_mode .o_dropdown_menu,
+html.o_dark_mode .o_menu_sections .dropdown-menu {
+    background: var(--dm-bg-2) !important;
+    border: 1px solid var(--dm-border) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.o_dark_mode .dropdown-item,
+html.o_dark_mode .o_dropdown_item {
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .dropdown-item:hover,
+html.o_dark_mode .dropdown-item:focus,
+html.o_dark_mode .o_dropdown_item:hover {
+    background: var(--dm-bg-hover) !important;
+    color: #fff !important;
+}
+
+html.o_dark_mode .dropdown-divider {
+    border-color: var(--dm-border) !important;
+}
+
+/* Modals */
+html.o_dark_mode .modal-content,
+html.o_dark_mode .modal-dialog .modal-content {
+    background: var(--dm-bg-2) !important;
+    border: 1px solid var(--dm-border) !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .modal-header,
+html.o_dark_mode .modal-footer {
+    background: var(--dm-bg-3) !important;
+    border-color: var(--dm-border) !important;
+}
+
+html.o_dark_mode .modal-title {
+    color: var(--dm-text-heading) !important;
+}
+
+html.o_dark_mode .modal-backdrop {
+    background-color: #000 !important;
+    opacity: 0.7 !important;
+}
+
+html.o_dark_mode .close,
+html.o_dark_mode .btn-close {
+    filter: invert(1) !important;
+}
+
+/* ──────────────────────────────────────────
+   ALERTS & NOTIFICATIONS
+   ────────────────────────────────────────── */
+html.o_dark_mode .alert-info {
+    background: rgba(91, 192, 222, 0.12) !important;
+    border-color: var(--dm-info) !important;
+    color: var(--dm-info) !important;
+}
+
+html.o_dark_mode .alert-success {
+    background: rgba(62, 207, 142, 0.12) !important;
+    border-color: var(--dm-success) !important;
+    color: var(--dm-success) !important;
+}
+
+html.o_dark_mode .alert-warning {
+    background: rgba(245, 185, 66, 0.12) !important;
+    border-color: var(--dm-warning) !important;
+    color: var(--dm-warning) !important;
+}
+
+html.o_dark_mode .alert-danger {
+    background: rgba(240, 107, 107, 0.12) !important;
+    border-color: var(--dm-danger) !important;
+    color: var(--dm-danger) !important;
+}
+
+/* Toast / snackbar notifications */
+html.o_dark_mode .o_notification,
+html.o_dark_mode .o_notification_manager .o_notification {
+    background: var(--dm-bg-3) !important;
+    border: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ──────────────────────────────────────────
+   CHATTER / DISCUSS / MESSAGING
+   ────────────────────────────────────────── */
+html.o_dark_mode .o_chatter,
+html.o_dark_mode .o_thread_window,
+html.o_dark_mode .o_Message,
+html.o_dark_mode .o-mail-Message {
+    background: var(--dm-bg-2) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o-mail-Message-bubble,
+html.o_dark_mode .o_Message_bubble {
+    background: var(--dm-bg-3) !important;
+    border: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_chatter_topbar,
+html.o_dark_mode .o-mail-ChatterTopbar {
+    background: var(--dm-bg-3) !important;
+    border-bottom: 1px solid var(--dm-border) !important;
+}
+
+html.o_dark_mode .o_chatter .o_composer,
+html.o_dark_mode .o-mail-Composer {
+    background: var(--dm-bg-3) !important;
+    border-top: 1px solid var(--dm-border) !important;
+}
+
+html.o_dark_mode .o_chatter .o_composer .o_composer_input,
+html.o_dark_mode .o-mail-Composer-input {
+    background: var(--dm-bg-4) !important;
+    color: var(--dm-text) !important;
+}
+
+/* ──────────────────────────────────────────
+   ACTIVITY VIEW
+   ────────────────────────────────────────── */
+html.o_dark_mode .o_ActivityView,
+html.o_dark_mode .o_activity_view {
+    background: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_activity_record {
+    background: var(--dm-bg-2) !important;
+    border: 1px solid var(--dm-border) !important;
+}
+
+html.o_dark_mode .o_activity_color_success {
+    color: var(--dm-success) !important;
+}
+
+html.o_dark_mode .o_activity_color_warning {
+    color: var(--dm-warning) !important;
+}
+
+html.o_dark_mode .o_activity_color_danger {
+    color: var(--dm-danger) !important;
+}
+
+/* ──────────────────────────────────────────
+   SCROLLBARS
+   ────────────────────────────────────────── */
+html.o_dark_mode ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+html.o_dark_mode ::-webkit-scrollbar-track {
+    background: var(--dm-bg-2);
+}
+
+html.o_dark_mode ::-webkit-scrollbar-thumb {
+    background: var(--dm-bg-4);
+    border-radius: 4px;
+}
+
+html.o_dark_mode ::-webkit-scrollbar-thumb:hover {
+    background: var(--dm-border-light);
+}
+
+/* ──────────────────────────────────────────
+   MISC  –  Tables, Cards, Separators
+   ────────────────────────────────────────── */
+html.o_dark_mode table {
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .table th,
+html.o_dark_mode .table td {
+    border-color: var(--dm-border) !important;
+}
+
+html.o_dark_mode .table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--dm-bg-3) !important;
+}
+
+html.o_dark_mode .card,
+html.o_dark_mode .o_card {
+    background: var(--dm-bg-2) !important;
+    border: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .card-header,
+html.o_dark_mode .card-footer {
+    background: var(--dm-bg-3) !important;
+    border-color: var(--dm-border) !important;
+}
+
+html.o_dark_mode hr {
+    border-color: var(--dm-border) !important;
+}
+
+html.o_dark_mode .text-muted {
+    color: var(--dm-text-muted) !important;
+}
+
+html.o_dark_mode h1,
+html.o_dark_mode h2,
+html.o_dark_mode h3,
+html.o_dark_mode h4,
+html.o_dark_mode h5,
+html.o_dark_mode h6 {
+    color: var(--dm-text-heading) !important;
+}
+
+html.o_dark_mode .o_loading,
+html.o_dark_mode .o_loading_indicator {
+    background: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_web_settings_dialog .o_settings_container,
+html.o_dark_mode .o_settings_container {
+    background: var(--dm-bg) !important;
+}
+
+/* ──────────────────────────────────────────
+   DARK MODE TOGGLE BUTTON (systray icon)
+   ────────────────────────────────────────── */
+.o_dark_mode_toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    cursor: pointer;
+    height: 100%;
+    color: inherit;
+    font-size: 17px;
+    transition: opacity 0.2s ease;
+}
+
+.o_dark_mode_toggle:hover {
+    opacity: 0.75;
+}
+
+.o_dark_mode_toggle .o_dm_icon {
+    line-height: 1;
+}
+
+/* When dark mode is active, show a sun icon */
+html.o_dark_mode .o_dark_mode_toggle .o_dm_icon::before {
+    content: "☀️";
+}
+
+html:not(.o_dark_mode) .o_dark_mode_toggle .o_dm_icon::before {
+    content: "🌙";
+}
+
+/* The grey page background between settings cards */
+html.o_dark_mode .o_ResConfigSettings,
+html.o_dark_mode .o_settings_container,
+html.o_dark_mode .o_settings_page,
+html.o_dark_mode .o_settings_form_view,
+html.o_dark_mode .o_form_view.o_settings_view,
+html.o_dark_mode .o_ResConfigSettings>.o_form_view,
+html.o_dark_mode .o_action_manager>.o_view_controller {
+    background: var(--dm-bg) !important;
+}
+
+/* The full page background outer wrappers */
+html.o_dark_mode .o_web_client>.o_action_manager,
+html.o_dark_mode .o_web_client>.o_action_manager>div,
+html.o_dark_mode .o_web_client .o_main_content {
+    background: var(--dm-bg) !important;
+}
+
+/* Settings cards / section blocks */
+html.o_dark_mode .app_settings_block,
+html.o_dark_mode .o_setting_box,
+html.o_dark_mode .o_setting_container,
+html.o_dark_mode .o_settings_block {
+    background: var(--dm-bg-2) !important;
+    border: 1px solid var(--dm-border) !important;
+    border-radius: 6px !important;
+    color: var(--dm-text) !important;
+}
+
+/* Left secondary menu / app switcher strip */
+html.o_dark_mode .o_secondary_menu,
+html.o_dark_mode .o_burger_menu {
+    background: var(--dm-bg-2) !important;
+    border-right: 1px solid var(--dm-border) !important;
+}
+
+html.o_dark_mode .o_secondary_menu .o_nav_entry {
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_secondary_menu .o_nav_entry:hover,
+html.o_dark_mode .o_secondary_menu .o_nav_entry.active {
+    background: var(--dm-bg-hover) !important;
+    color: #fff !important;
+}
+
+/* Search panel (left filter strip in list/kanban) */
+html.o_dark_mode .o_search_panel {
+    background: var(--dm-bg-2) !important;
+    border-right: 1px solid var(--dm-border) !important;
+}
+
+html.o_dark_mode .o_search_panel_section_header,
+html.o_dark_mode .o_search_panel_label,
+html.o_dark_mode .o_search_panel_category_value {
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_search_panel_category_value:hover,
+html.o_dark_mode .o_search_panel_filter_value:hover {
+    background: var(--dm-bg-hover) !important;
+}
+
+html.o_dark_mode .o_search_panel_category_value.active,
+html.o_dark_mode .o_search_panel_filter_value.active {
+    background: var(--dm-primary-bg) !important;
+    color: var(--dm-primary) !important;
+}
+
+/* Settings section links and headings */
+html.o_dark_mode .app_settings_block a,
+html.o_dark_mode .o_setting_box a,
+html.o_dark_mode .o_settings_container a {
+    color: var(--dm-primary) !important;
+}
+
+html.o_dark_mode .o_settings_header,
+html.o_dark_mode .o_settings_container .o_setting_box h2,
+html.o_dark_mode .o_settings_container .o_setting_box h3 {
+    color: var(--dm-text-heading) !important;
+}
+
+/* Last-resort catch for any bg-white / bg-light utility classes */
+html.o_dark_mode .bg-white,
+html.o_dark_mode .bg-light {
+    background-color: var(--dm-bg-2) !important;
+}
+
+/* Settings left panel active item highlight */
+html.o_dark_mode .settings_tab .selected,
+html.o_dark_mode .settings_tab li.selected,
+html.o_dark_mode .settings_tab li:hover {
+    background: var(--dm-bg-hover) !important;
+    color: var(--dm-text-heading) !important;
+}
+
+
+/* Main culprits — Odoo 18 settings group headers */
+html.o_dark_mode .o_settings_header,
+html.o_dark_mode .o_setting_section_header,
+html.o_dark_mode .o_settings_section,
+html.o_dark_mode .o_settings_page>.o_setting_section,
+html.o_dark_mode .o_ResConfigSettings .o_settings_header,
+html.o_dark_mode .o_ResConfigSettings h2,
+html.o_dark_mode .o_ResConfigSettings h3,
+html.o_dark_mode .o_ResConfigSettings .o_setting_section>h2,
+html.o_dark_mode .o_ResConfigSettings .o_setting_section>h3 {
+    background: var(--dm-bg) !important;
+    color: var(--dm-text-muted) !important;
+    border-top: 1px solid var(--dm-border) !important;
+    border-bottom: none !important;
+}
+
+/* The actual grey strip wrapper divs between card blocks */
+html.o_dark_mode .o_settings_container>div:not(.app_settings_block),
+html.o_dark_mode .o_settings_page>div:not(.app_settings_block),
+html.o_dark_mode .o_ResConfigSettings>div>div:not(.app_settings_block),
+html.o_dark_mode .o_ResConfigSettings .row:not(:has(.app_settings_block)) {
+    background: var(--dm-bg) !important;
+    border-color: var(--dm-border) !important;
+}
+
+/* Catch-all: any div directly inside the settings form that acts as a divider */
+html.o_dark_mode .o_form_view .o_ResConfigSettings>div {
+    background: var(--dm-bg) !important;
+}
+
+/* The strip is often a plain <div> with inline or utility bg styles */
+html.o_dark_mode .o_ResConfigSettings .row {
+    background: transparent !important;
+}
+
+/* Section label text inside the header strip */
+html.o_dark_mode .o_settings_header span,
+html.o_dark_mode .o_settings_header label,
+html.o_dark_mode .o_setting_section_header span {
+    color: var(--dm-text-muted) !important;
+}
+
+/* Specifically the thin full-width divider row Odoo inserts */
+html.o_dark_mode div.o_setting_section_header,
+html.o_dark_mode div[class="o_setting_section_header"],
+html.o_dark_mode .o_ResConfigSettings div.o_settings_header,
+html.o_dark_mode .o_ResConfigSettings div[class*="header"] {
+    background-color: var(--dm-bg) !important;
+    background: var(--dm-bg) !important;
+    color: var(--dm-text-heading) !important;
+}
+
+/* Nuclear option: any element whose computed background is the light grey (#f5f5f5 / #f8f8f8) */
+html.o_dark_mode [style*="background-color: #f"],
+html.o_dark_mode [style*="background: #f"],
+html.o_dark_mode [style*="background-color:rgb(245"],
+html.o_dark_mode [style*="background-color:rgb(248"] {
+    background-color: var(--dm-bg) !important;
+    background: var(--dm-bg) !important;
+}
+
+
+/* Discuss outer layout */
+html.o_dark_mode .o-mail-DiscussSidebar,
+html.o_dark_mode .o-mail-Discuss,
+html.o_dark_mode .o-mail-DiscussContent,
+html.o_dark_mode .o_discuss_container,
+html.o_dark_mode .o_discuss,
+html.o_dark_mode .o_mail_discuss {
+    background: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+}
+
+/* Left sidebar (Inbox, Starred, History, Channels, DMs) */
+html.o_dark_mode .o-mail-DiscussSidebar,
+html.o_dark_mode .o-mail-DiscussSidebarPanel,
+html.o_dark_mode .o_discuss_sidebar,
+html.o_dark_mode .o_mail_discuss_sidebar {
+    background: var(--dm-bg-2) !important;
+    border-right: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+/* Sidebar section labels (CHANNELS, DIRECT MESSAGES) */
+html.o_dark_mode .o-mail-DiscussSidebarCategory,
+html.o_dark_mode .o-mail-DiscussSidebarCategory-label,
+html.o_dark_mode .o_discuss_sidebar_category_title {
+    color: var(--dm-text-muted) !important;
+    background: transparent !important;
+}
+
+/* Sidebar items (Inbox, Starred, channel names) */
+html.o_dark_mode .o-mail-DiscussSidebarChannel,
+html.o_dark_mode .o-mail-DiscussSidebarMailbox,
+html.o_dark_mode .o-mail-DiscussSidebarChannel>*,
+html.o_dark_mode .o_discuss_sidebar_item {
+    color: var(--dm-text) !important;
+    background: transparent !important;
+}
+
+html.o_dark_mode .o-mail-DiscussSidebarChannel:hover,
+html.o_dark_mode .o-mail-DiscussSidebarMailbox:hover,
+html.o_dark_mode .o_discuss_sidebar_item:hover {
+    background: var(--dm-bg-hover) !important;
+}
+
+html.o_dark_mode .o-mail-DiscussSidebarChannel.o-active,
+html.o_dark_mode .o-mail-DiscussSidebarMailbox.o-active,
+html.o_dark_mode .o_discuss_sidebar_item.o_active {
+    background: var(--dm-primary-bg) !important;
+    color: var(--dm-primary) !important;
+}
+
+/* Search bar in discuss sidebar */
+html.o_dark_mode .o-mail-DiscussSidebar .o_searchview,
+html.o_dark_mode .o-mail-DiscussSidebar input[type="text"],
+html.o_dark_mode .o-mail-DiscussSidebar input[type="search"] {
+    background: var(--dm-bg-4) !important;
+    border-color: var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+/* Main content pane (the right side — inbox/thread area) */
+html.o_dark_mode .o-mail-DiscussContent,
+html.o_dark_mode .o-mail-Thread,
+html.o_dark_mode .o-mail-Inbox,
+html.o_dark_mode .o_mail_thread,
+html.o_dark_mode .o_discuss_view {
+    background: var(--dm-bg) !important;
+    color: var(--dm-text) !important;
+}
+
+/* Thread top bar (Inbox title + Mark all read button row) */
+html.o_dark_mode .o-mail-Thread-header,
+html.o_dark_mode .o-mail-DiscussContent-header,
+html.o_dark_mode .o_discuss_content_header {
+    background: var(--dm-bg-2) !important;
+    border-bottom: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+/* Empty state text */
+html.o_dark_mode .o-mail-Thread .o-empty-state,
+html.o_dark_mode .o-mail-Inbox .o-empty-state,
+html.o_dark_mode .o_discuss_no_content {
+    color: var(--dm-text-muted) !important;
+}
+
+
+/* Apps page outer layout */
+html.o_dark_mode .o_apps,
+html.o_dark_mode .o_module_list,
+html.o_dark_mode .o_app_store {
+    background: var(--dm-bg) !important;
+}
+
+/* Left category/filter sidebar */
+html.o_dark_mode .o_apps .o_sidebar,
+html.o_dark_mode .o_module_list .o_sidebar,
+html.o_dark_mode .o_app_store .o_sidebar,
+html.o_dark_mode .o_apps_sidebar,
+html.o_dark_mode .o_apps_search_panel,
+/* Odoo 18 uses a generic sidebar class */
+html.o_dark_mode .o_view_controller .o_sidebar,
+html.o_dark_mode .o_kanban_view .o_sidebar,
+/* The actual rendered sidebar in Apps */
+html.o_dark_mode section.o_search_panel,
+html.o_dark_mode .o_search_panel_filters,
+html.o_dark_mode .o_search_panel_categories {
+    background: var(--dm-bg-2) !important;
+    border-right: 1px solid var(--dm-border) !important;
+    color: var(--dm-text) !important;
+}
+
+/* Sidebar section headers (APPS, CATEGORIES labels) */
+html.o_dark_mode .o_search_panel_section_header {
+    background: var(--dm-bg-3) !important;
+    color: var(--dm-text-muted) !important;
+    border-bottom: 1px solid var(--dm-border) !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* Sidebar list items */
+html.o_dark_mode .o_search_panel_category_value .o_search_panel_label,
+html.o_dark_mode .o_search_panel_filter_value .o_search_panel_label,
+html.o_dark_mode .o_search_panel_label {
+    color: var(--dm-text) !important;
+}
+
+html.o_dark_mode .o_search_panel_category_value:hover,
+html.o_dark_mode .o_search_panel_filter_value:hover {
+    background: var(--dm-bg-hover) !important;
+    border-radius: 4px !important;
+}
+
+html.o_dark_mode .o_search_panel_category_value.active>.o_search_panel_label,
+html.o_dark_mode .o_search_panel_category_value.active {
+    background: var(--dm-primary-bg) !important;
+    color: var(--dm-primary) !important;
+    border-radius: 4px !important;
+}
+
+/* Count badges in category sidebar */
+html.o_dark_mode .o_search_panel_counter {
+    background: var(--dm-bg-4) !important;
+    color: var(--dm-text-muted) !important;
+    border-radius: 10px !important;
+}
+
+/* Collapse arrow button */
+html.o_dark_mode .o_search_panel_current_selection,
+html.o_dark_mode .o_search_panel_section .o_search_panel_section_header button {
+    color: var(--dm-text-muted) !important;
+}
+
+/* The narrow toggle chevron sidebar (<<) */
+html.o_dark_mode .o_apps .o_toggle_sidebar,
+html.o_dark_mode .o_toggle_sidebar {
+    background: var(--dm-bg-2) !important;
+    border-right: 1px solid var(--dm-border) !important;
+    color: var(--dm-text-muted) !important;
+}
+
+
+html.o_dark_mode .o_setting_section_header,
+html.o_dark_mode .o_settings_section_header,
+html.o_dark_mode .o_ResConfigSettings .o_setting_section_header,
+html.o_dark_mode .o_ResConfigSettings>div>.o_setting_section_header,
+
+
+html.o_dark_mode .o_ResConfigSettings .row.o_setting_section_header,
+html.o_dark_mode .o_ResConfigSettings .row:has(> h2),
+html.o_dark_mode .o_ResConfigSettings .row:has(> .o_settings_header),
+
+/* Direct h2 inside settings */
+html.o_dark_mode .o_ResConfigSettings h2,
+html.o_dark_mode .o_ResConfigSettings .o_form_sheet h2,
+
+/* Generic section header containers */
+html.o_dark_mode div.o_setting_section_header,
+html.o_dark_mode div[class*="setting"][class*="header"],
+html.o_dark_mode .o_settings_page div[class*="header"] {
+    background-color: var(--dm-bg) !important;
+    background: var(--dm-bg) !important;
+    border-top: 1px solid var(--dm-border) !important;
+    border-bottom: none !important;
+    color: var(--dm-text-heading) !important;
+}
+
+/* Make absolutely sure no child inherits a light bg */
+html.o_dark_mode .o_setting_section_header *,
+html.o_dark_mode .o_ResConfigSettings h2 * {
+    background: transparent !important;
+    color: inherit !important;
+}
