@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Dark Mode",
-    "version": "18.0.1.0.0rc1",
+    'version': '18.0.1.0.0',
     "summary": "Dark Mode toggle for Odoo 18 backend interface",
     "description": """
         Dark Mode for Odoo 18
